@@ -28,7 +28,6 @@ type Server struct {
 	pb.UnimplementedArticlesServer
 }
 
-//var Connect *sql.DB
 
 func (ser *Server) CreateArticle(ctx context.Context, req *pb.CreateArticleRequest) (*pb.Article, error) {
 	var a pb.Article
