@@ -102,7 +102,6 @@ func (ser *Server) listArticles(w *pb.ListArticlesResponse, q string, args ...in
 		all = append(all, &article)
 
 	}
-	fmt.Println(all)
 	out = &pb.ListArticlesResponse{Articleslist: all}
 	return out, nil
 }
@@ -212,9 +211,6 @@ func Execute() (error, Server) {
 	//Connect = db
 	s := Server{Connect: db}
 	pb.RegisterArticlesServer(grpcServer, &s)
-	// if err := grpcServer.Serve(lis); err != nil {
-	// 	log.Printf("Failed to Serve:%v", err)
-	// }
 	return grpcServer.Serve(lis), s
 }
 func main() {
